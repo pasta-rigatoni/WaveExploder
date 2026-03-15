@@ -1,0 +1,6 @@
+numpy
+soundfile
+python-osc
+
+# dev
+pytest

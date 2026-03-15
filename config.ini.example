@@ -1,0 +1,66 @@
+[Setup]
+
+# Set this to the maximum number of channels that will be in the WAV files
+max_num_channels = 32
+
+# This is the starting location to look for multi-channel WAV files
+initial_input_directory = C:\path\to\your\recordings
+
+# This is where the exploded, individual WAV files will be placed
+initial_output_directory = C:\path\to\your\output
+
+# Flag that indicates if we will look for more multi-channel WAV files by
+# recursively going into any subdirectory found in the input directory
+recurse_sub_directories = True
+
+# It is expected that any multi-channel WAV file that we want to explode
+# starts with this text string
+input_file_prefix = 0000
+
+# Flag that indicates if we want to use the current directory name in the  individual (exploded)
+# file names.  This is useful if the subdirectory name is the song title and you want every
+# individual file to start with the song title
+use_dir_name_as_output_file_prefix = True
+
+# Flag that indicates if we want to use the input WAV filename (without extension) as the
+# prefix for the individual output files.  Useful when all multi-channel WAV files are in
+# a single flat directory and are already named by song.
+#   True = Use the input filename as the prefix  (e.g. MySong_Ch09_Vocal_Lead.wav)
+#   False = Do not use the input filename as the prefix
+# Note: use one of use_dir_name_as_output_file_prefix or use_input_filename_as_output_file_prefix,
+# not both.
+use_input_filename_as_output_file_prefix = False
+
+# Flag that indicates if we don't want to skip any channels that aren't specifically named in the
+# Channel.Names section below.
+#   True = Explode all channels, even if not named
+#   False = Explode only channels that are specifically named
+explode_unnamed_channels = True
+
+# Flag that indicates if we want to explode a channels that appear to be silent.
+#    True = Create individual output files for any channel, even if it appears to be silent
+#    False = Skip any files that appear to be silent
+explode_silent_channels = False
+
+# Threshold RMS value to that is considered silent.  For channels that are truly silent a value
+# of 0.001 works well. For channels like open mics that aren't actually being used a value of
+# 0.007 works well.
+silent_channel_threshold = 0.007
+
+[Wing]
+# IP address of the Behringer Wing mixer.
+# Populated automatically by wing_sync.py after first successful connection.
+# Can also be set manually to skip network discovery.
+# ip = 192.168.1.103
+
+[Channel.Names]
+# This names the individual channels.  All channels start with "Ch" and channels less than 10
+# have a leading '0'.  Populated automatically by wing_sync.py, or set manually.
+# Examples:
+#Ch01 = Vocal_Lead
+#Ch02 = Vocal_Harmony
+#Ch09 = Guitar_Rhythm
+#Ch17 = Drum_Kick
+#Ch18 = Drum_Snare
+#Ch19 = Drum_Hi_Hat
+#Ch20 = Drum_Toms
