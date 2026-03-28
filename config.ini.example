@@ -17,7 +17,7 @@ recurse_sub_directories = True
 # starts with this text string
 input_file_prefix = 0000
 
-# Flag that indicates if we want to use the current directory name in the  individual (exploded)
+# Flag that indicates if we want to use the current directory name in the individual (exploded)
 # file names.  This is useful if the subdirectory name is the song title and you want every
 # individual file to start with the song title
 use_dir_name_as_output_file_prefix = True
